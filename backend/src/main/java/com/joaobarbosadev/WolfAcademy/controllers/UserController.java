@@ -1,5 +1,6 @@
 package com.joaobarbosadev.WolfAcademy.controllers;
 
+import com.joaobarbosadev.WolfAcademy.dto.UserDTO;
 import com.joaobarbosadev.WolfAcademy.entities.User;
 import com.joaobarbosadev.WolfAcademy.services.UserService;
 import org.springframework.data.domain.Page;
@@ -20,8 +21,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<User>> getUsers(Pageable pageable) {
-        Page<User> users = userService.findAll(pageable);
+    public ResponseEntity<Page<UserDTO>> getUsers(Pageable pageable) {
+        Page<UserDTO> users = userService.findAll(pageable);
         return ResponseEntity.ok(users);
     }
 }

@@ -1,5 +1,6 @@
 package com.joaobarbosadev.WolfAcademy.services;
 
+import com.joaobarbosadev.WolfAcademy.dto.UserDTO;
 import com.joaobarbosadev.WolfAcademy.entities.User;
 import com.joaobarbosadev.WolfAcademy.repositories.UserRepository;
 import org.springframework.data.domain.Page;
@@ -17,7 +18,8 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public Page<User> findAll(Pageable pageable) {
-        return userRepository.findAll(pageable);
+    public Page<UserDTO> findAll(Pageable pageable) {
+        Page<User> users = userRepository.findAll(pageable);
+        return users.map((u)-> new UserDTO(u, u.getRoles()));
     }
 }
