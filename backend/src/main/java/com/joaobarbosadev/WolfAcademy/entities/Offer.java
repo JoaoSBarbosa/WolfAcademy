@@ -1,5 +1,6 @@
 package com.joaobarbosadev.WolfAcademy.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,8 +20,9 @@ public class Offer implements Serializable {
     private Instant startMoment;
     private Instant endMoment;
 
-    @ManyToOne
+    @ManyToOne // MUITAS OFERTAS PARA UM CURSO
     @JoinColumn(name = "course_id")
+    @JsonBackReference
     private Course course;
 
 
@@ -46,5 +48,4 @@ public class Offer implements Serializable {
     public int hashCode() {
         return Objects.hashCode(id);
     }
-
 }

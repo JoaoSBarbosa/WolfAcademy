@@ -16,7 +16,7 @@ public class CourseDTO implements Serializable {
     private String name;
     private String imgUri;
     private String imgGrayUri;
-//    private List<OfferDTO> offers = new ArrayList<>();
+    private List<OfferDTO> offers = new ArrayList<>();
 
     public CourseDTO() {
     }
@@ -35,11 +35,11 @@ public class CourseDTO implements Serializable {
         imgGrayUri = course.getImgUri();
     }
 
-//    public CourseDTO(Course course, List<Offer> offers) {
-//        this(course);
-//
-//        offers.forEach((offer) -> this.offers.add(new OfferDTO(offer)));
-//    }
+    public CourseDTO(Course course, List<Offer> offers) {
+        this(course);
+
+        offers.forEach((offer) -> this.offers.add(new OfferDTO(offer)));
+    }
 
     @Override
     public boolean equals(Object o) {

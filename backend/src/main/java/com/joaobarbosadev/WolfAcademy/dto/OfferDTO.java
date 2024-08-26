@@ -37,4 +37,10 @@ public class OfferDTO implements Serializable {
         endMoment = entity.getEndMoment();
         course = entity.getCourse();
     }
+
+    public OfferDTO(Offer entity, Course course) {
+
+        this(entity);
+        this.course = course;
+    }
 }

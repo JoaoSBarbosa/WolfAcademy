@@ -1,6 +1,5 @@
 package com.joaobarbosadev.WolfAcademy.services;
 
-import com.joaobarbosadev.WolfAcademy.dto.OfferDTO;
 import com.joaobarbosadev.WolfAcademy.entities.Offer;
 import com.joaobarbosadev.WolfAcademy.repositories.OfferRepository;
 import org.springframework.data.domain.Page;
@@ -17,10 +16,20 @@ public class OfferService {
         this.offerRepository = offerRepository;
     }
 
-
     @Transactional(readOnly = true)
-    public Page<OfferDTO> getOffers(Pageable pageable) {
-        Page<Offer> offers = offerRepository.findAll(pageable);
-        return offers.map(OfferDTO::new);
+    public Page<Offer> getOffers(Pageable pageable) {
+        return  offerRepository.findAll(pageable);
+
+
+//        return offers.map(OfferDTO::new);
     }
+
+//    @Transactional(readOnly = true)
+//    public Page<OfferDTO> getOffers(Pageable pageable) {
+//        Page<Offer> offers = offerRepository.findAll(pageable);
+//
+//        return offers.map((offer)-> new OfferDTO(offer, offer.getCourse()) );
+//
+////        return offers.map(OfferDTO::new);
+//    }
 }

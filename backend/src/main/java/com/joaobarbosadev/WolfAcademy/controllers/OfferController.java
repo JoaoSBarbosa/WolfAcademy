@@ -1,6 +1,7 @@
 package com.joaobarbosadev.WolfAcademy.controllers;
 
 import com.joaobarbosadev.WolfAcademy.dto.OfferDTO;
+import com.joaobarbosadev.WolfAcademy.entities.Offer;
 import com.joaobarbosadev.WolfAcademy.services.OfferService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,8 +21,16 @@ public class OfferController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<OfferDTO>> findAll(final Pageable pageable) {
-        Page<OfferDTO> list = offerService.getOffers(pageable);
+    public ResponseEntity<Page<Offer>> findAll(final Pageable pageable) {
+        System.out.println("CHEGOU NA API DE OFERTAS");
+        Page<Offer> list = offerService.getOffers(pageable);
         return ResponseEntity.ok(list);
     }
+
+//    @GetMapping
+//    public ResponseEntity<Page<OfferDTO>> findAll(final Pageable pageable) {
+//        System.out.println("CHEGOU NA API DE OFERTAS");
+//        Page<OfferDTO> list = offerService.getOffers(pageable);
+//        return ResponseEntity.ok(list);
+//    }
 }

@@ -1,10 +1,12 @@
 package com.joaobarbosadev.WolfAcademy.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,10 +22,13 @@ public class Course implements Serializable {
     private String imgUri;
     private String imgGrayUri;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "course") // Um curso para muitas ofertas
-    private List<Offer> offers;
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<Offer> offers = new ArrayList<>();
 
-    public Course() {}
+
+    public Course() {
+    }
 
     public Course(Long id, String name, String imgUri, String imgGrayUri) {
         this.id = id;
@@ -31,6 +36,7 @@ public class Course implements Serializable {
         this.imgUri = imgUri;
         this.imgGrayUri = imgGrayUri;
     }
+
 
     @Override
     public boolean equals(Object o) {

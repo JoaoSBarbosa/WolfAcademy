@@ -1,9 +1,7 @@
 package com.joaobarbosadev.WolfAcademy.controllers;
 
-import com.joaobarbosadev.WolfAcademy.dto.CourseDTO;
-import com.joaobarbosadev.WolfAcademy.dto.OfferDTO;
+import com.joaobarbosadev.WolfAcademy.entities.Course;
 import com.joaobarbosadev.WolfAcademy.services.CourseService;
-import com.joaobarbosadev.WolfAcademy.services.OfferService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +19,15 @@ public class CourseController {
         this.service = service;
     }
 
-
     @GetMapping
-    public ResponseEntity<Page<CourseDTO>> findAll(final Pageable pageable) {
-        Page<CourseDTO> list = service.getAllCourses(pageable);
+    public ResponseEntity<Page<Course>> findAll(final Pageable pageable) {
+        Page<Course> list = service.getAllCourses(pageable);
         return ResponseEntity.ok(list);
     }
+
+//    @GetMapping
+//    public ResponseEntity<Page<CourseCustomDTO>> findAll(final Pageable pageable) {
+//        Page<CourseCustomDTO> list = service.getAllCourses(pageable);
+//        return ResponseEntity.ok(list);
+//    }
 }
