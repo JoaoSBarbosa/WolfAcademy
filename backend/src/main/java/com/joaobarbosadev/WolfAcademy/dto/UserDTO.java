@@ -1,9 +1,11 @@
 package com.joaobarbosadev.WolfAcademy.dto;
 
+import com.joaobarbosadev.WolfAcademy.entities.Notification;
 import com.joaobarbosadev.WolfAcademy.entities.Role;
 import com.joaobarbosadev.WolfAcademy.entities.User;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,8 +20,10 @@ public class UserDTO {
     private String uriImage;
 
     private Set<RoleDTO> roles = new HashSet<>();
+    private List<NotificationDTO> notifications = new ArrayList<>();
 
-    public UserDTO() {}
+    public UserDTO() {
+    }
 
 
     public UserDTO(Long id, String firstName, String lastName, String email, String password, String uriImage) {
@@ -45,4 +49,11 @@ public class UserDTO {
 
         roles.forEach((role) -> this.roles.add(new RoleDTO(role)));
     }
+
+    public UserDTO(User user, Set<Role> roles, List<Notification> notifications) {
+        this(user);
+
+        notifications.forEach((notification) ->  this.notifications.add( new NotificationDTO(notification)));
+        roles.forEach((role) -> this.roles.add(new RoleDTO(role)));
     }
+}

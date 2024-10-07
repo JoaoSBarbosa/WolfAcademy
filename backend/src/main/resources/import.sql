@@ -64,3 +64,12 @@ INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('RES
 
 -- Ofertas para 'Next.js com Typescript'
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Next.js com TS Avançado', '2025-01-15T09:00:00Z', '2025-04-15T17:00:00Z', 10);
+
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Nova mensagem recebida', '2024-08-26T14:30:00Z', false, '/messages/1', 1);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Curso disponível para inscrição', '2024-08-26T15:00:00Z', false, '/courses/2', 2);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Seu certificado está disponível', '2024-08-26T16:00:00Z', true, '/certificates/3', 3);
+
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Atualização de perfil concluída', '2024-08-26T17:00:00Z', true, '/profile', 4);
