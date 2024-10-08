@@ -1,8 +1,6 @@
 package com.joaobarbosadev.WolfAcademy.entities;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,7 +21,7 @@ public class Course implements Serializable {
     private String imgGrayUri;
 
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
-    @JsonManagedReference
+//    @JsonManagedReference
     private List<Offer> offers = new ArrayList<>();
 
 

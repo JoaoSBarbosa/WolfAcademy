@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -25,6 +26,9 @@ public class Offer implements Serializable {
     @JsonBackReference
     private Course course;
 
+    @OneToMany( mappedBy = "offer")
+    @JsonBackReference
+    private List<Resource> resources;
 
     public Offer() {
     }
