@@ -1,5 +1,6 @@
 package com.joaobarbosadev.WolfAcademy.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.joaobarbosadev.WolfAcademy.entities.enums.ResourceType;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class Resource {
 
     @ManyToOne
     @JoinColumn( name = "offer_id")
+    @JsonBackReference // Ignora ao serializar o lado inverso
     private Offer offer;
 
     public Resource() {}

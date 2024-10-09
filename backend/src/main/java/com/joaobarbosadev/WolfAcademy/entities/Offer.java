@@ -1,6 +1,7 @@
 package com.joaobarbosadev.WolfAcademy.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,8 +27,8 @@ public class Offer implements Serializable {
     @JsonBackReference
     private Course course;
 
-    @OneToMany( mappedBy = "offer")
-    @JsonBackReference
+    @OneToMany( mappedBy = "offer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference // Serializa este lado
     private List<Resource> resources;
 
     public Offer() {
