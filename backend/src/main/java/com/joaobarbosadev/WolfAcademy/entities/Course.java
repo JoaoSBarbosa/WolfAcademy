@@ -21,7 +21,7 @@ public class Course implements Serializable {
     private String imgGrayUri;
 
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
-//    @JsonManagedReference
+    @JsonManagedReference
     private List<Offer> offers = new ArrayList<>();
 
 

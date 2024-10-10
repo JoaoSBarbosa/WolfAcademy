@@ -5,6 +5,8 @@ import com.joaobarbosadev.WolfAcademy.entities.enums.ResourceType;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,6 +27,9 @@ public class Resource {
     @JoinColumn( name = "offer_id")
     @JsonBackReference // Ignora ao serializar o lado inverso
     private Offer offer;
+
+    @OneToMany(mappedBy = "resource")
+    private List<Section> sections = new ArrayList<>();
 
     public Resource() {}
 
