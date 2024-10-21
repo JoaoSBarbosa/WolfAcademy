@@ -24,7 +24,8 @@ public class Notification implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnore
+//    @JsonIgnore
+    @JsonBackReference
     private User user;
 
     public Notification() {
