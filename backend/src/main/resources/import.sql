@@ -46,27 +46,27 @@ INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Edi
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Edição 2', TIMESTAMP WITH TIME ZONE '2024-12-15T09:00:00Z', TIMESTAMP WITH TIME ZONE '2025-03-15T17:00:00Z', 2);
 
 -- Ofertas para 'Framework Spring'
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Spring Básico', '2024-09-10T09:00:00Z', '2024-11-30T17:00:00Z', 3);
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Spring Avançado', '2025-01-05T09:00:00Z', '2025-03-25T17:00:00Z', 3);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Spring Básico', TIMESTAMP WITH TIME ZONE '2024-09-10T09:00:00Z', TIMESTAMP WITH TIME ZONE '2024-11-30T17:00:00Z', 3);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Spring Avançado', TIMESTAMP WITH TIME ZONE '2025-01-05T09:00:00Z', TIMESTAMP WITH TIME ZONE '2025-03-25T17:00:00Z', 3);
 
 -- Ofertas para 'Desenvolvimento React'
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('React para Iniciantes', '2024-10-01T09:00:00Z', '2025-01-15T17:00:00Z', 4);
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('React Avançado', '2025-02-01T09:00:00Z', '2025-05-01T17:00:00Z', 4);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('React para Iniciantes', TIMESTAMP WITH TIME ZONE '2024-10-01T09:00:00Z', TIMESTAMP WITH TIME ZONE '2025-01-15T17:00:00Z', 4);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('React Avançado', TIMESTAMP WITH TIME ZONE '2025-02-01T09:00:00Z', TIMESTAMP WITH TIME ZONE '2025-05-01T17:00:00Z', 4);
 
 -- Ofertas para 'Essenciais Next.js'
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Next.js Completo', '2024-11-01T09:00:00Z', '2025-02-15T17:00:00Z', 4);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Next.js Completo', TIMESTAMP WITH TIME ZONE '2024-11-01T09:00:00Z', TIMESTAMP WITH TIME ZONE '2025-02-15T17:00:00Z', 4);
 
 -- Ofertas para 'Fundamentos C#'
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('C# Básico', '2024-09-15T09:00:00Z', '2024-12-15T17:00:00Z', 5);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('C# Básico', TIMESTAMP WITH TIME ZONE '2024-09-15T09:00:00Z', TIMESTAMP WITH TIME ZONE '2024-12-15T17:00:00Z', 5);
 
 -- Ofertas para 'Desenvolvimento Full Stack com Spring e React'
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Full Stack Master', '2024-09-25T09:00:00Z', '2025-01-25T17:00:00Z', 7);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Full Stack Master', TIMESTAMP WITH TIME ZONE '2024-09-25T09:00:00Z', TIMESTAMP WITH TIME ZONE '2025-01-25T17:00:00Z', 7);
 
 -- Ofertas para 'Microserviços com Spring Boot'
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Microserviços Essenciais', '2024-10-10T09:00:00Z', '2025-01-10T17:00:00Z', 8);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Microserviços Essenciais', TIMESTAMP WITH TIME ZONE '2024-10-10T09:00:00Z',TIMESTAMP WITH TIME ZONE '2025-01-10T17:00:00Z', 8);
 
 -- Ofertas para 'APIs REST com Spring e Node.js'
-INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('REST APIs Práticas', '2024-11-15T09:00:00Z', '2025-02-28T17:00:00Z', 9);
+INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('REST APIs Práticas', TIMESTAMP WITH TIME ZONE '2024-11-15T09:00:00Z', TIMESTAMP WITH TIME ZONE '2025-02-28T17:00:00Z', 9);
 
 -- Ofertas para 'Next.js com Typescript'
 INSERT INTO tb_offer (edition, start_moment, end_moment, course_id) VALUES ('Next.js com TS Avançado', '2025-01-15T09:00:00Z', '2025-04-15T17:00:00Z', 10);
@@ -89,8 +89,9 @@ INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Seu ce
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Atualização de perfil concluída', '2024-08-26T17:00:00Z', true, '/profile', 4);
 
 
--- INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
--- INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (3, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
 --
 -- INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1 do capítulo 1', 1, 1);
 -- INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (1, 'Material de apoio: abc', 'https://www.youtube.com/watch?v=sqbqoR-lMf8');
