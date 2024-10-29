@@ -1,5 +1,7 @@
 package com.joaobarbosadev.WolfAcademy.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,13 +27,16 @@ public class Section {
 
     @ManyToOne
     @JoinColumn( name = "resource_id")
+    @JsonBackReference
     private Resource resource;
 
     @ManyToOne
     @JoinColumn( name = "prerequisite_id")
+    @JsonBackReference
     private Section prerequisites;
 
     @OneToMany( mappedBy = "section")
+    @JsonBackReference
     private List<Lesson> lessons = new ArrayList<>();
 
 }

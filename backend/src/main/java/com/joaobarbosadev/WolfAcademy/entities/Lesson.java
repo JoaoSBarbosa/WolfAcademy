@@ -1,4 +1,6 @@
 package com.joaobarbosadev.WolfAcademy.entities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,6 +23,7 @@ public abstract class Lesson implements Serializable {
 
     @ManyToOne
     @JoinColumn( name = "section_id")
+    @JsonManagedReference
     private Section section;
 
     @ManyToMany

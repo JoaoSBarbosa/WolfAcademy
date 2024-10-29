@@ -1,37 +1,44 @@
-package com.joaobarbosadev.WolfAcademy.entities;
+package com.joaobarbosadev.WolfAcademy.dto;
+import com.joaobarbosadev.WolfAcademy.entities.Enrollment;
+import com.joaobarbosadev.WolfAcademy.entities.Offer;
+import com.joaobarbosadev.WolfAcademy.entities.User;
 import com.joaobarbosadev.WolfAcademy.entities.pk.EnrollmentPK;
+import lombok.Data;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "tb_enrollment")
-public class Enrollment implements Serializable {
-
+@Data
+public class EnrollmentDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @EmbeddedId
     private EnrollmentPK id = new EnrollmentPK();
-    @Column( columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant enrollMoment;
-    @Column( columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant refundMoment;
     private boolean available;
     private boolean onlyUpdate;
 
-    public Enrollment() {}
-    public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {
+    public EnrollmentDTO() {}
+    public EnrollmentDTO(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {
         id.setUser(user);
         id.setOffer(offer);
         this.enrollMoment = enrollMoment;
         this.refundMoment = refundMoment;
         this.available = available;
         this.onlyUpdate = onlyUpdate;
+    }
+
+    public EnrollmentDTO(Enrollment entity) {
+        id.setUser(entity.getStudent());
+        id.setOffer(entity.getOffer());
+        enrollMoment = entity.getEnrollMoment();
+        refundMoment = entity.getRefundMoment();
+        available = entity.isAvailable();
+        onlyUpdate = entity.isOnlyUpdate();
     }
 
     @Override
@@ -60,6 +67,4 @@ public class Enrollment implements Serializable {
     public void setOffer(Offer offer){
         id.setOffer(offer);
     }
-
-
 }

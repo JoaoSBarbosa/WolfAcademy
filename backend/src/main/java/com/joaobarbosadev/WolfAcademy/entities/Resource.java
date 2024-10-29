@@ -1,6 +1,7 @@
 package com.joaobarbosadev.WolfAcademy.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.joaobarbosadev.WolfAcademy.entities.enums.ResourceType;
 import lombok.Data;
 
@@ -24,14 +25,19 @@ public class Resource {
     private String externalLink;
 
     @ManyToOne
-    @JoinColumn( name = "offer_id")
+    @JoinColumn(name = "offer_id")
     @JsonBackReference // Ignora ao serializar o lado inverso
     private Offer offer;
 
-    @OneToMany(mappedBy = "resource")
+    //    @OneToMany(mappedBy = "resource")
+//    @JsonManagedReference
+//    private List<Section> sections = new ArrayList<>();
+    @OneToMany(mappedBy = "resource", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Section> sections = new ArrayList<>();
 
-    public Resource() {}
+    public Resource() {
+    }
 
     public Resource(Long id, String title, String description, Integer position, String imgUri, ResourceType type, String externalLink, Offer offer) {
         this.id = id;

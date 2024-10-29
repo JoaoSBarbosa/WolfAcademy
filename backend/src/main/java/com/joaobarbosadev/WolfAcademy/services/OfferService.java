@@ -19,9 +19,6 @@ public class OfferService {
     @Transactional(readOnly = true)
     public Page<Offer> getOffers(Pageable pageable) {
         return  offerRepository.findAll(pageable);
-
-
-//        return offers.map(OfferDTO::new);
     }
 
 //    @Transactional(readOnly = true)

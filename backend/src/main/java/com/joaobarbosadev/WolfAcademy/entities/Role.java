@@ -1,5 +1,6 @@
 package com.joaobarbosadev.WolfAcademy.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Role implements Serializable {
     private String authority;
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
+    @JsonBackReference
     private Set<User> user = new HashSet<User>();
 
     public Role() {}
